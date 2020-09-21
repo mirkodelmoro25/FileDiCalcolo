@@ -4,6 +4,7 @@
 
 #ifndef FOGLIODICALCOLO_SUBJECT_H
 #define FOGLIODICALCOLO_SUBJECT_H
+#include "Observer.h"
 
 class Subject {
 protected:
