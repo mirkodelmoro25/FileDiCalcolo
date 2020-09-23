@@ -6,7 +6,7 @@ Cells::Cells(int i, int j, double v) {
     value=v;
 }
 Cells::~Cells() {
-    removeO()
+    removeO();
 }
 void Cells::registerO (Observer* o) {
     observers.push_back(o);
