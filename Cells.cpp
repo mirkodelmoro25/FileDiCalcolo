@@ -1,9 +1,9 @@
 #include "Cells.h"
 
-Cells::Cells(int i=0, int j=0, double v=0) {
+Cells::Cells(int i, int j, double v) {
     row=i;
     column=j;
-    vallue=v;
+    value=v;
 }
 Cells::~Cells() {
     removeO()
