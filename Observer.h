@@ -5,7 +5,7 @@
 #ifndef FOGLIODICALCOLO_OBSERVER_H
 #define FOGLIODICALCOLO_OBSERVER_H
 
-public class Observer {
+class Observer {
 protected:
     virtual ~Observer() {}
 public:
