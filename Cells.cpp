@@ -5,8 +5,7 @@ Cells::Cells(int i, int j, double v) {
     column=j;
     value=v;
 }
-Cells::~Cells() {
-}
+
 void Cells::registerO (Observer* o) {
     observers.push_back(o);
 }
