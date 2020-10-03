@@ -9,7 +9,7 @@ using namespace std;
 class Cells : public Subject {
 public:
     Cells(int i=0, int j=0, double v=0);
-    virtual ~Cells();
+    virtual ~Cells() {}
     void registerO (Observer* o) override;
     void removeO (Observer* o) override;
     void notify() const override;
