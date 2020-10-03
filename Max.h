@@ -7,7 +7,7 @@
 
 class Max : public Observer, Functions{
 public:
-    Max ();
+    Max (Cells* s);
     ~Max();
     virtual void update() override;
     virtual void attach() override;
