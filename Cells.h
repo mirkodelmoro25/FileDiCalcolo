@@ -1,6 +1,9 @@
 #ifndef FOGLIODICALCOLO_CELLS_H
 #define FOGLIODICALCOLO_CELLS_H
 #include "Subject.h"
+#include <list>
+
+using namespace std;
 
 
 class Cells : public Subject {
@@ -11,6 +14,7 @@ public:
     void removeO (Observer* o) override;
     void notify() const override;
     void setValue (double v);
+    double getValue () {return value;}
 private:
     list<Observer*> observers;
     int row;
