@@ -1,6 +1,7 @@
 #include "Max.h"
 
-Max::Max() {
+Max::Max(Cells* s) {
+    subject = s;
     attach();
 }
 Max::~Max() {
