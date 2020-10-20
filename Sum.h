@@ -4,20 +4,23 @@
 
 #include "Observer.h"
 #include "Functions.h"
+#include <list>
+#include <QtWidgets/QTableWidget>
 
-class Sum : public Observer, Functions{
+class Cells;
+
+class Sum :  public Observer, public Functions {
 public:
-    Sum (Cells* s);
+    Sum (list <Cells*> s, QTableWidget* tableWidget);
     ~Sum();
     virtual void update() override;
     virtual void attach() override;
     virtual void detach() override;
-    virtual double op() override;
+    virtual double op(list<Cells*> c) override;
 
 private:
-    Cells* subject;
+    list<Cells*> subjects;
+    QTableWidget* tableWidget;
 };
 
 #endif //FILEDICALCOLO_MIN_H
-
-
