@@ -1,25 +1,34 @@
 #include "Sum.h"
+#include "Cells.h"
 
-Sum::Sum(Cells* s) {
-    subject = s;
+Sum::Sum(list <Cells*> s, QTableWidget* tableWidget) {
+    subjects = s;
+    this->tableWidget = tableWidget;
     attach();
 }
 Sum::~Sum() {
     detach();
 }
 void Sum::update() {
-    value = op();
+    value = op(cells);
+    tableWidget->item(8, 2)->setText(QString::number(value));
+
+
 }
 void Sum::attach() {
-    subject->registerO(this);
+    for (auto it:subjects) {
+        it->registerO(this);
+    }
+
 }
 void Sum::detach() {
-    subject->removeO(this);
+    for (auto it:subjects) {
+        it->removeO(this);
+    }
 }
-double Sum::op() {
+double Sum::op(list<Cells*> c) {
     double sum = 0;
-    for (auto it:cells)
+    for (auto it:c)
         sum+= it->getValue();
     return sum;
-
 }
