@@ -1,26 +1,33 @@
 #include "Max.h"
+#include "Cells.h"
 
-Max::Max(Cells* s) {
-    subject = s;
+Max::Max(list <Cells*> s, QTableWidget* tableWidget) {
+    subjects = s;
+    this->tableWidget = tableWidget;
     attach();
 }
 Max::~Max() {
     detach();
 }
  void Max::update() {
-    value = op();
+    value = op(cells);
+    tableWidget->item(8, 4)->setText(QString::number(value));
 }
  void Max::attach() {
-    subject->registerO(this);
+     for (auto it:subjects) {
+         it->registerO(this);
+     }
 }
  void Max::detach() {
-    subject->removeO(this);
+     for (auto it:subjects) {
+         it->removeO(this);
+     }
 }
- double Max::op() {
+ double Max::op(list<Cells*> c) {
     double max;
-    if (cells.size() != 0) {
+    if (c.size() != 0) {
         max = (*(cells.begin()))->getValue();
-        for (auto it:cells){
+        for (auto it:c){
             if (it->getValue() > max)
                 max = it->getValue();
         }
