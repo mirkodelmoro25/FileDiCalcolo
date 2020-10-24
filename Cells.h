@@ -1,7 +1,3 @@
-//
-// Created by mirko25 on 18/09/20.
-//
-
 #ifndef FOGLIODICALCOLO_CELLS_H
 #define FOGLIODICALCOLO_CELLS_H
 #include "Subject.h"
@@ -24,8 +20,10 @@ public:
     void removeO (Observer * o) override;
     void notify() const override;
     void setValue (double v);
-    double getValue() { return value;}
-    QTextEdit* getCell() {return t;}
+    double getValue() const { return value;}
+    QLineEdit* getCell() {return t;}
+    int getRow() {return row;}
+    int getColumn() {return column;}
 
 private:
     list<Observer*> observers;
@@ -34,11 +32,12 @@ private:
     Max* maxF;
     Min* minF;
     Media* mediaF;
-    QTextEdit* t;
+    QLineEdit* t;
+    int row;
+    int column;
 
 };
 
 
 
 #endif //FOGLIODICALCOLO_CELLS_H
-
