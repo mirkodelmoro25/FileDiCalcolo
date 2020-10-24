@@ -31,6 +31,9 @@ void Sum::detach() {
         it->removeO(this);
     }
 }
+void Sum::putCells(Cells* cell) {
+    subjects.push_back(cell);
+}
 double Sum::op(list<Cells*> c) {
     double sum = 0;
     for (auto it:c) {
