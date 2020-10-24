@@ -1,21 +1,15 @@
+#include <QtWidgets/QLineEdit>
+#include <iostream>
 #include "Cells.h"
 
 Cells::Cells(double v, int i, int j, QTableWidget* tableWidget) {
     value = v;
-    QTextEdit* sCell = new QTextEdit();
-    sCell->setPlainText(QString::number(value));
-    tableWidget->setCellWidget(i, j, sCell);
-    t = sCell;
-   // QTableWidgetItem* q = new QTableWidgetItem("0");
-    //tableWidget->setItem(i,j,QString::number(v));
-    if (sumF)
-        registerO(dynamic_cast<Observer *>(sumF));
-    if (maxF)
-        registerO(dynamic_cast<Observer *>(maxF));
-    if (minF)
-        registerO(dynamic_cast<Observer *>(minF));
-    if (mediaF)
-        registerO(dynamic_cast<Observer *>(mediaF));
+    row = i;
+    column = j;
+    QTableWidgetItem* q = new QTableWidgetItem("0");
+    q->setData(Qt::EditRole, value);
+    tableWidget->setItem(i,j,q);
+    
 }
 
 Cells::~Cells() noexcept {
@@ -35,8 +29,8 @@ void Cells::removeO (Observer* o) {
     observers.remove(o);
 }
 void Cells::notify() const {
-    for(auto itr = observers.begin(); observers.end() != itr; itr++) {
-        (*itr)->update();
+    for(auto it: observers) {
+        it->update();
     }
 }
 void Cells::setValue (double v) {
