@@ -1,3 +1,4 @@
+
 #ifndef FILEDICALCOLO_SUM_H
 #define FILEDICALCOLO_SUM_H
 
