@@ -24,6 +24,8 @@ public:
     QLineEdit* getCell() {return t;}
     int getRow() {return row;}
     int getColumn() {return column;}
+    void setRegistered(bool r) {registered = r;}
+    bool getRegistered() {return registered;}
 
 private:
     list<Observer*> observers;
@@ -35,6 +37,7 @@ private:
     QLineEdit* t;
     int row;
     int column;
+    bool registered;
 
 };
 
