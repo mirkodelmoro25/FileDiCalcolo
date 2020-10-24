@@ -1,4 +1,5 @@
 #include <utility>
+#include <iostream>
 #include "Max.h"
 #include "Cells.h"
 
@@ -26,6 +27,9 @@ Max::~Max() {
          it->removeO(this);
      }
 }
+void Max::putCells(Cells* cell) {
+    subjects.push_back(cell);
+}
  double Max::op(list<Cells*> c) {
     double max;
     for (auto it:c){
@@ -34,4 +38,3 @@ Max::~Max() {
     }
     return max;
 }
-
