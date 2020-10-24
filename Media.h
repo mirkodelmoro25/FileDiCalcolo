@@ -4,18 +4,23 @@
 
 #include "Observer.h"
 #include "Functions.h"
+#include <list>
+#include <QtWidgets/QTableWidget>
+
+class Cells;
 
 class Media : public Observer, Functions{
 public:
-    Media (Cells* s);
+    Media (list <Cells*> s, QTableWidget* tableWidget);
     ~Media();
     virtual void update() override;
     virtual void attach() override;
     virtual void detach() override;
-    virtual double op() override;
+    virtual double op(list<Cells*> c) override;
 
 private:
-    Cells* subject;
+    list<Cells*> subjects;
+    QTableWidget* tableWidget;
 };
 
 
