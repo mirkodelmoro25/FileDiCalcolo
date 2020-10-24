@@ -26,6 +26,9 @@ void Media::detach() {
         it->removeO(this);
     }
 }
+void Media::putCells(Cells* cell) {
+    subjects.push_back(cell);
+}
 double Media::op(list<Cells*> c) {
     double media = 0;
     int count = 0;
