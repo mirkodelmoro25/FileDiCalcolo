@@ -16,6 +16,7 @@ public:
     virtual void update() override;
     virtual void attach() override;
     virtual void detach() override;
+    void putCells(Cells* cell);
     virtual double op(list<Cells*> c) override;
 
 private:
