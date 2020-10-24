@@ -1,32 +1,40 @@
+//
+// Created by mirko25 on 03/10/20.
+//
+#include <utility>
 #include "Min.h"
+#include "Cells.h"
 
-Min::Min(Cells* s) {
-    subject = s;
+Min::Min(list <Cells*> s, QTableWidget* tableWidget) {
+    subjects = std::move(s);
+    this->tableWidget = tableWidget;
     attach();
 }
 Min::~Min() {
     detach();
 }
 void Min::update() {
-    value = op();
+    value = op(subjects);
+    QTextEdit* minC = new QTextEdit();
+    minC->setPlainText(QString::number(value));
+    tableWidget->setCellWidget(9, 8, minC);
 }
 void Min::attach() {
-    subject->registerO(this);
+    for (auto it:subjects) {
+        it->registerO(this);
+    }
 }
 void Min::detach() {
-    subject->removeO(this);
-}
-double Min::op() {
-    double min;
-    if (cells.size() != 0) {
-        min = (*(cells.begin()))->getValue();
-        for (auto it:cells){
-            if (it->getValue() < min)
-                min = it->getValue();
-        }
+    for (auto it:subjects) {
+        it->removeO(this);
     }
-    else
-        min = 0;
+}
+double Min::op(list<Cells*> c) {
+    double min;
+    for (auto it:c){
+        if (it->getValue() <= min)
+            min = it->getValue();
+    }
     return min;
 
 }
