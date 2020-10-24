@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTextEdit>
 #include <QTableWidget>
+#include <QString>
 #include "Sum.h"
 #include "Max.h"
 #include "Min.h"
@@ -15,9 +16,12 @@ class Window: public QMainWindow {
 
 public:
     Window(QWidget *parent);
+    list<Cells*> getCells() {return c;}
+signals:
+    void changeValues(int row, int column, double s);
 
-private slots:
-    void cellChanged (int row,  int column);
+public slots:
+    void cellChanged (int row, int column);
 private:
     QTableWidget* tableWidget;
     QTextEdit* sumT;
@@ -25,9 +29,16 @@ private:
     QTextEdit* minT;
     QTextEdit* mediaT;
     Sum* sum;
+    Max* max;
+    Min* min;
+    Media* media;
     QTextEdit* sumCell;
-    Cells* cell;
-    
+    QTextEdit* maxCell;
+    QTextEdit* minCell;
+    QTextEdit* mediaCell;
+    list<Cells*> c;
+    list<Cells*> cc;
+
 };
 
 
