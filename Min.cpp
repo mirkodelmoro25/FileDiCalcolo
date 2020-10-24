@@ -29,6 +29,9 @@ void Min::detach() {
         it->removeO(this);
     }
 }
+void Min::putCells(Cells* cell) {
+    subjects.push_back(cell);
+}
 double Min::op(list<Cells*> c) {
     double min;
     for (auto it:c){
