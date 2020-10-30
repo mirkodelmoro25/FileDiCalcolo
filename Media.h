@@ -1,12 +1,10 @@
 #ifndef FILEDICALCOLO_MEDIA_H
 #define FILEDICALCOLO_MEDIA_H
 
-
 #include "Observer.h"
 #include "Functions.h"
 #include <list>
 #include <QtWidgets/QTableWidget>
-
 class Cells;
 
 class Media : public Observer, Functions{
@@ -23,6 +21,5 @@ private:
     list<Cells*> subjects;
     QTableWidget* tableWidget;
 };
-
 
 #endif //FILEDICALCOLO_MEDIA_H
