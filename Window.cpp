@@ -20,7 +20,6 @@ Window::Window(QWidget* parent) :QMainWindow(parent) {
     this->setFixedSize(1030,325);
     this->setWindowTitle("Foglio di Calcolo");
 
-
     sumT = new QTextEdit("Somma:");
     sumT->setAutoFillBackground(true);
     sumT->setAlignment(Qt::AlignCenter);
@@ -45,7 +44,6 @@ Window::Window(QWidget* parent) :QMainWindow(parent) {
     mediaT->setReadOnly(true);
     tableWidget->setCellWidget(8,9,mediaT);
 
-
     sumCell = new QTextEdit();
     sumCell->setPlainText(QString::number(0));
     tableWidget->setCellWidget(9, 6, sumCell);
@@ -64,12 +62,10 @@ Window::Window(QWidget* parent) :QMainWindow(parent) {
     mediaCell->setReadOnly(true);
 
     connect(tableWidget, SIGNAL(cellChanged(int,int )), this, SLOT(cellChanged(int,int)));
-
 }
 
 void Window::cellChanged(int row, int column) {
     double s = tableWidget->item(row,column)->text().toDouble();
-
     for (auto it : c){
         if (it->getRow() == row && it->getColumn() == column && !it->getRegistered()){
             sum->putCells(it);
@@ -87,98 +83,7 @@ void Window::cellChanged(int row, int column) {
             it->setValue(s);
         }
     }
-
 }
 
 
 
-    sumCell = new QTextEdit();
-    sumCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 6, sumCell);
-    sumCell->setReadOnly(true);
-    maxCell = new QTextEdit();
-    maxCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 7, maxCell);
-    maxCell->setReadOnly(true);
-    minCell = new QTextEdit();
-    minCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 8, minCell);
-    minCell->setReadOnly(true);
-    mediaCell = new QTextEdit();
-    mediaCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 9, mediaCell);
-    mediaCell->setReadOnly(true);
-
-    connect(tableWidget, SIGNAL(cellChanged(int,int )), this, SLOT(cellChanged(int,int)));
-
-}
-
-void Window::cellChanged(int row, int column) {
-    double s = tableWidget->item(row,column)->text().toDouble();
-
-    for (auto it : c){
-        if (it->getRow() == row && it->getColumn() == column && !it->getRegistered()){
-            sum->putCells(it);
-            max->putCells(it);
-            min->putCells(it);
-            media->putCells(it);
-            it->setRegistered(true);
-            it->registerO(sum);
-            it->registerO(max);
-            it->registerO(min);
-            it->registerO(media);
-            it->setValue(s);
-        }
-        else if (it->getRow() == row && it->getColumn() == column){
-            it->setValue(s);
-        }
-    }
-
-}
-
-    sumCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 6, sumCell);
-    sumCell->setReadOnly(true);
-    maxCell = new QTextEdit();
-    maxCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 7, maxCell);
-    maxCell->setReadOnly(true);
-    minCell = new QTextEdit();
-    minCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 8, minCell);
-    minCell->setReadOnly(true);
-    mediaCell = new QTextEdit();
-    mediaCell->setPlainText(QString::number(0));
-    tableWidget->setCellWidget(9, 9, mediaCell);
-    mediaCell->setReadOnly(true);
-    
-    connect(tableWidget, SIGNAL(cellChanged(int,int )), this, SLOT(cellChanged(int,int)));
-
-}
-
-void Window::cellChanged(int row, int column) {
-    double s = tableWidget->item(row,column)->text().toDouble();
-    for (auto it : c){
-        if (it->getRow() == row && it->getColumn() == column){
-            it->setValue(s);
-        }
-    }
-
-}
-
-    double sum_value = sum->op(c);
-    string a = to_string(sum_value);
-    sumCell = new QTextEdit();
-    sumCell->setPlainText(QString::number(sum_value));
-    tableWidget->setCellWidget(8, 2, sumCell);
-    sumCell->setReadOnly(true);
-
-    for (auto it :c) {
-        connect(it->getCell(), SIGNAL(textChanged()), this, SLOT(cellChanged()));
-    }
-
-}
-
-void Window::cellChanged() {
-
-}
