@@ -2,12 +2,12 @@
 #define FILEDICALCOLO_SUM_H
 
 #include "Observer.h"
-#include "Functions.h"
+#include "Function.h"
 #include <list>
 #include <QtWidgets/QTableWidget>
 class Cells;
 
-class Sum :  public Observer, public Functions {
+class Sum :  public Observer, public Function{
 public:
     Sum (list <Cells*> s, QTableWidget* tableWidget);
     ~Sum();
