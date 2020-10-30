@@ -38,8 +38,6 @@ private:
     QTextEdit* mediaCell;
     list<Cells*> c;
     list<Cells*> cc;
-
 };
-
 
 #endif //FILEDICALCOLO_WINDOW_H
