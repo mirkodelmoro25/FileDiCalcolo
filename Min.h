@@ -2,12 +2,12 @@
 #define FILEDICALCOLO_MIN_H
 
 #include "Observer.h"
-#include "Functions.h"
+#include "Function.h"
 #include <list>
 #include <QtWidgets/QTableWidget>
 class Cells;
 
-class Min : public Observer, Functions{
+class Min : public Observer, Function{
 public:
     Min (list <Cells*> s, QTableWidget* tableWidget);
     ~Min();
