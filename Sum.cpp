@@ -1,5 +1,3 @@
-
-#include <iostream>
 #include <utility>
 #include "Sum.h"
 #include "Cells.h"
@@ -13,27 +11,29 @@ Sum::~Sum() {
     detach();
 }
 
-
 void Sum::update() {
-    value = op(subjects);
     QTextEdit* sumC = new QTextEdit();
-    sumC->setPlainText(QString::number(value));
+    sumC->setPlainText(QString::number(op(subjects)));
     tableWidget->setCellWidget(9, 6, sumC);
 
 }
+
 void Sum::attach() {
     for (auto it:subjects) {
         it->registerO(this);
     }
 }
+
 void Sum::detach() {
     for (auto it:subjects) {
         it->removeO(this);
     }
 }
+
 void Sum::putCells(Cells* cell) {
     subjects.push_back(cell);
 }
+
 double Sum::op(list<Cells*> c) {
     double sum = 0;
     for (auto it:c) {
