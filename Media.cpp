@@ -7,15 +7,17 @@ Media::Media(list <Cells*> s, QTableWidget* tableWidget) {
     this->tableWidget = tableWidget;
     attach();
 }
+
 Media::~Media() {
     detach();
 }
+
 void Media::update() {
-    value = op(subjects);
     QTextEdit* mediaC = new QTextEdit();
-    mediaC->setPlainText(QString::number(value));
+    mediaC->setPlainText(QString::number(op(subjects)));
     tableWidget->setCellWidget(9, 9, mediaC);
 }
+
 void Media::attach() {
     for (auto it:subjects) {
         it->registerO(this);
@@ -26,9 +28,11 @@ void Media::detach() {
         it->removeO(this);
     }
 }
+
 void Media::putCells(Cells* cell) {
     subjects.push_back(cell);
 }
+
 double Media::op(list<Cells*> c) {
     double media = 0;
     int count = 0;
