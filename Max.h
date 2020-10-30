@@ -22,5 +22,4 @@ private:
     QTableWidget* tableWidget;
 };
 
-
 #endif //FILEDICALCOLO_MAX_H
