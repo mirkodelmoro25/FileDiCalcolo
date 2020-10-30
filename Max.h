@@ -2,12 +2,12 @@
 #define FILEDICALCOLO_MAX_H
 
 #include "Observer.h"
-#include "Functions.h"
+#include "Function.h"
 #include <list>
 #include <QtWidgets/QTableWidget>
 class Cells;
 
-class Max : public Observer, Functions {
+class Max : public Observer, Function {
 public:
     Max (list <Cells*> s, QTableWidget* tableWidget);
     ~Max();
