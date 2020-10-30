@@ -1,13 +1,13 @@
-#ifndef FILEDICALCOLO_FUNCTIONS_H
-#define FILEDICALCOLO_FUNCTIONS_H
+#ifndef FILEDICALCOLO_FUNCTION_H
+#define FILEDICALCOLO_FUNCTION_H
 #include <list>
 class Cells;
 
 using namespace std;
 
-class Functions{
+class Function{
 public:
-    virtual ~Functions(){};
+    virtual ~Function(){};
     virtual double op(list<Cells*> c) = 0;
 
 protected:
