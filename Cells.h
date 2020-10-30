@@ -29,10 +29,6 @@ public:
 private:
     list<Observer*> observers;
     double value;
-    Sum* sumF;
-    Max* maxF;
-    Min* minF;
-    Media* mediaF;
     QLineEdit* t;
     int row;
     int column;
