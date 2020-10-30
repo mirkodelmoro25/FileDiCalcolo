@@ -1,7 +1,6 @@
 #ifndef FILEDICALCOLO_MIN_H
 #define FILEDICALCOLO_MIN_H
 
-
 #include "Observer.h"
 #include "Functions.h"
 #include <list>
