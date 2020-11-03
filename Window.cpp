@@ -12,10 +12,10 @@ Window::Window(QWidget* parent) :QMainWindow(parent) {
         }
     }
 
-    sum = new Sum(cc, tableWidget);
-    max = new Max(cc,tableWidget);
-    min = new Min(cc,tableWidget);
-    media = new Media(cc,tableWidget);
+    sum = new Sum(cc, tableWidget,9,6);
+    max = new Max(cc,tableWidget,9,7);
+    min = new Min(cc,tableWidget,9,8);
+    media = new Media(cc,tableWidget,9,9);
 
     this->setFixedSize(1030,325);
     this->setWindowTitle("Foglio di Calcolo");
