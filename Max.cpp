@@ -3,9 +3,11 @@
 #include "Max.h"
 #include "Cells.h"
 
-Max::Max(list <Cells*> s, QTableWidget* tableWidget) {
+Max::Max(list <Cells*> s, QTableWidget* tableWidget, int x, int y) {
     subjects = std::move(s);
     this->tableWidget = tableWidget;
+    posX = x;
+    posY = y;
     attach();
 }
 
@@ -16,7 +18,7 @@ Max::~Max() {
  void Max::update() {
      QTextEdit* maxC = new QTextEdit();
      maxC->setPlainText(QString::number(op(subjects)));
-     tableWidget->setCellWidget(9, 7, maxC);
+     tableWidget->setCellWidget(posX, posY, maxC);
 }
 
  void Max::attach() {
@@ -36,7 +38,7 @@ void Max::putCells(Cells* cell) {
 }
 
 double Max::op(list<Cells*> c) {
-    double max;
+    double max = std::numeric_limits<double>::min();
     for (auto it:c){
         if (it->getValue() > max)
             max = it->getValue();
