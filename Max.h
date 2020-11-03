@@ -9,7 +9,7 @@ class Cells;
 
 class Max : public Observer, Function {
 public:
-    Max (list <Cells*> s, QTableWidget* tableWidget);
+    Max (list <Cells*> s, QTableWidget* tableWidget, int x, int y);
     ~Max();
     virtual void update() override;
     virtual void attach() override;
@@ -20,6 +20,7 @@ public:
 private:
     list <Cells*> subjects;
     QTableWidget* tableWidget;
+    int posX, posY;
 };
 
 #endif //FILEDICALCOLO_MAX_H
