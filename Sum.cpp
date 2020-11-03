@@ -2,9 +2,11 @@
 #include "Sum.h"
 #include "Cells.h"
 
-Sum::Sum(list <Cells*> s, QTableWidget* tableWidget) {
+Sum::Sum(list <Cells*> s, QTableWidget* tableWidget, int x, int y) {
     subjects = std::move(s);
     this->tableWidget = tableWidget;
+    posX = x;
+    posY = y;
     attach();
 }
 Sum::~Sum() {
@@ -14,7 +16,7 @@ Sum::~Sum() {
 void Sum::update() {
     QTextEdit* sumC = new QTextEdit();
     sumC->setPlainText(QString::number(op(subjects)));
-    tableWidget->setCellWidget(9, 6, sumC);
+    tableWidget->setCellWidget(posX, posY, sumC);
 
 }
 
