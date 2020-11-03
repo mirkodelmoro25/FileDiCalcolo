@@ -9,7 +9,7 @@ class Cells;
 
 class Min : public Observer, Function{
 public:
-    Min (list <Cells*> s, QTableWidget* tableWidget);
+    Min (list <Cells*> s, QTableWidget* tableWidget, int x, int y);
     ~Min();
     virtual void update() override;
     virtual void attach() override;
@@ -20,6 +20,7 @@ public:
 private:
     list<Cells*> subjects;
     QTableWidget* tableWidget;
+    int posX, posY;
 };
 
 #endif //FILEDICALCOLO_MIN_H
