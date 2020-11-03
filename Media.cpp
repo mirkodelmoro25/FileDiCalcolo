@@ -45,3 +45,4 @@ double Media::op(list<Cells*> c) {
     media = media/count;
     return media;
 }
+ 
