@@ -9,7 +9,7 @@ class Cells;
 
 class Media : public Observer, Function{
 public:
-    Media (list <Cells*> s, QTableWidget* tableWidget);
+    Media (list <Cells*> s, QTableWidget* tableWidget, int x, int y);
     ~Media();
     virtual void update() override;
     virtual void attach() override;
@@ -20,6 +20,7 @@ public:
 private:
     list<Cells*> subjects;
     QTableWidget* tableWidget;
+    int posX, posY;
 };
 
 #endif //FILEDICALCOLO_MEDIA_H
