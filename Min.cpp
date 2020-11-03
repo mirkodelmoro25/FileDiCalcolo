@@ -2,9 +2,11 @@
 #include "Min.h"
 #include "Cells.h"
 
-Min::Min(list <Cells*> s, QTableWidget* tableWidget) {
+Min::Min(list <Cells*> s, QTableWidget* tableWidget, int x, int y) {
     subjects = std::move(s);
     this->tableWidget = tableWidget;
+    posX = x;
+    posY = y;
     attach();
 }
 
@@ -15,7 +17,7 @@ Min::~Min() {
 void Min::update() {
     QTextEdit* minC = new QTextEdit();
     minC->setPlainText(QString::number(op(subjects)));
-    tableWidget->setCellWidget(9, 8, minC);
+    tableWidget->setCellWidget(posX, posY, minC);
 }
 
 void Min::attach() {
@@ -35,7 +37,7 @@ void Min::putCells(Cells* cell) {
 }
 
 double Min::op(list<Cells*> c) {
-    double min = 99999;
+    double min = std::numeric_limits<double>::max();
     for (auto it:c){
         if (it->getValue() <= min)
             min = it->getValue();
