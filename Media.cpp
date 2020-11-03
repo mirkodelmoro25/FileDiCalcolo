@@ -2,9 +2,11 @@
 #include "Media.h"
 #include "Cells.h"
 
-Media::Media(list <Cells*> s, QTableWidget* tableWidget) {
+Media::Media(list <Cells*> s, QTableWidget* tableWidget, int x, int y) {
     subjects = std::move(s);
     this->tableWidget = tableWidget;
+    posX = x;
+    posY = y;
     attach();
 }
 
@@ -15,7 +17,7 @@ Media::~Media() {
 void Media::update() {
     QTextEdit* mediaC = new QTextEdit();
     mediaC->setPlainText(QString::number(op(subjects)));
-    tableWidget->setCellWidget(9, 9, mediaC);
+    tableWidget->setCellWidget(posX, posY, mediaC);
 }
 
 void Media::attach() {
